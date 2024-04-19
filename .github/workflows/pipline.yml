@@ -4,11 +4,12 @@ jobs:
   cypress-run:
     runs-on: ubuntu-latest
     steps: 
-      - name: Checkout
+      - name: Checkout 
+        uses: actions/checkout@v4
       - name: Cypress-run
-        uses: cypress-io/github-action@v6 
+        uses: cypress-io/github-action@v6
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: cypress-screenshots
-          path: cypress-screenshots
+          path: cypress/screenshots
