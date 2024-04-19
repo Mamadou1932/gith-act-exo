@@ -1,10 +1,14 @@
 name: End-to-end-test
-on: push
-jobs:
+on: push 
+jobs: 
   cypress-run:
-    runs-on: utbunt-latest
-    stseps:
+    runs-on: ubuntu-latest
+    steps: 
       - name: Checkout
-        uses: actions/checkout@v4
       - name: Cypress-run
-        uses: cypress-io/github-actionv6
+        uses: cypress-io/github-action@v6 
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: cypress-screenshot
+          path: cypress-screenshot
