@@ -1,0 +1,10 @@
+name: End-to-end-test
+on: push
+jobs:
+  cypress-run:
+    runs-on: utbunt-latest
+    stseps:
+      - name: Checkout
+        uses: action/checkout@v4
+      - name: Cypress-run
+        uses: cypress.io/github-actionv6
